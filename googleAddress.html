@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lightning Out Integration</title>
+    
+</head>
+<body>
+    <h1>My External Page</h1>
+    <div id="lightning-out"></div>
+    <script src="https://dchomebuyer--devcon.sandbox.my.site.com/dchomebuyer/lightning/lightning.out.js"></script>
+    <script>
+        $Lightning.use(
+          "c:stonyCreekHomesAddress", // Name of the Lightning Out app
+          function () {
+            // Callback once framework and app loaded
+            $Lightning.createComponent(
+              "c:googlePlacesLWC", // Top-level component of your app
+              {}, // Attributes to set on the component when created
+              "lightningLocator", // The DOM location to insert the component
+              function (cmp) {
+                // Callback when component is created and active on the page
+                console.log("Lightning Web Component loaded successfully.");
+              }
+            );
+          },
+          "https://dchomebuyer--devcon.sandbox.my.site.com/dchomebuyer" // Site endpoint
+        );
+    </script>
+</body>
+</html>
